@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Robin's Voice · Étude de cas · tweetyboopdev</title>
+<meta name="description" content="Une tablette qui parle pour quelqu’un qui ne le peut pas, et une application qui s’assure que quelqu’un répond.">
+<link rel="canonical" href="https://tweetyboopdev2022-code.github.io/fr/work/robins-voice/">
+<link rel="alternate" hreflang="fr" href="https://tweetyboopdev2022-code.github.io/fr/work/robins-voice/">
+<link rel="alternate" hreflang="en" href="https://tweetyboopdev2022-code.github.io/work/robins-voice/">
+<link rel="alternate" hreflang="x-default" href="https://tweetyboopdev2022-code.github.io/work/robins-voice/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tweetyboopdev">
+<meta property="og:title" content="Robin's Voice · Étude de cas · tweetyboopdev">
+<meta property="og:description" content="Une tablette qui parle pour quelqu’un qui ne le peut pas, et une application qui s’assure que quelqu’un répond.">
+<meta property="og:url" content="https://tweetyboopdev2022-code.github.io/fr/work/robins-voice/">
+<meta property="og:image" content="https://tweetyboopdev2022-code.github.io/assets/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121a17">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fr/"><i aria-hidden="true"></i>tweetyboopdev</a>
+    <ul>
+      <li><a href="/fr/#work">Projets</a></li>
+      <li><a href="/fr/#cases">Études de cas</a></li>
+      <li><a href="/fr/#skills">Compétences</a></li>
+      
+      <li><a href="https://github.com/tweetyboopdev2022-code">GitHub ↗</a></li>
+      <li><a class="lang" href="/work/robins-voice/" hreflang="en" lang="en" aria-label="Read in English">EN</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="cs-hero" aria-labelledby="cs-h">
+    <div class="wrap">
+      <a class="crumb" href="/fr/#cases">← Toutes les études de cas</a>
+      <div><span class="kind">Mobile + API · en bêta</span></div>
+      <h1 id="cs-h">Robin's Voice</h1>
+      <p class="lede">Une tablette qui parle pour quelqu’un qui ne le peut pas, et une application qui s’assure que quelqu’un répond.</p>
+      <dl class="facts">
+        <div><dt>Rôle</dt><dd>Produit, architecture, API et application</dd></div>
+        <div><dt>Technologies</dt><dd>Expo · React Native · Rails 8 · PostgreSQL · ActionCable</dd></div>
+        <div><dt>Statut</dt><dd>En bêta avec une équipe de soins familiale</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="cs" aria-labelledby="p-h">
+      <span class="eyebrow">01</span>
+      <h2 id="p-h">Le problème</h2>
+      <div class="prose"><p>Les adultes autistes non verbaux dépendent souvent d’un cercle de personnes qui se relaient : parents, infirmières à domicile, éducateurs, intervenants en répit. Quand ils ont soif, mal ou de la peine, ils n’ont parfois aucun moyen fiable de le dire.</p><p>L’entourage a le problème inverse : ce qu’une personne a remarqué le matin se rend rarement à celle qui prend le relais, et les médicaments, les limites d’hydratation et l’entretien des équipements vivent dans des cahiers et des conversations de groupe.</p></div>
+    </section>
+
+    <section class="cs" aria-labelledby="b-h">
+      <span class="eyebrow">02</span>
+      <h2 id="b-h">Ce que j’ai construit</h2>
+      <div class="features"><div><b>Une voix sur la tablette</b><span>Un tableau de pictogrammes avec plus de 70 boutons bilingues prêts à l’emploi, des photos et de l’audio personnels, et une carte du corps pour montrer où ça fait mal. Un bouton peut ouvrir des sous-choix, comme quelle pizza.</span></div><div><b>Des signaux qui obtiennent une réponse</b><span>Chaque toucher arrive en temps réel sur les téléphones de l’équipe et passe d’en attente à pris en charge, puis à résolu : deux personnes n’accourent pas en même temps, et personne ne suppose qu’un autre s’en occupe.</span></div><div><b>Le dossier de soins</b><span>Horaires et registre des médicaments, limites d’hydratation avec alertes douces et fermes, signes vitaux, humeur, et un catalogue de plus de 50 équipements médicaux avec leur historique d’entretien.</span></div><div><b>Des relèves qui tiennent</b><span>Des notes de quart qui doivent être lues et fermées avant d’en écrire une nouvelle, et l’horaire de la journée affiché sur la tablette pour que la personne sache ce qui s’en vient.</span></div></div>
+    </section>
+
+    <section class="cs" aria-labelledby="h-h">
+      <span class="eyebrow">03</span>
+      <h2 id="h-h">Comment ça fonctionne</h2>
+      <div class="prose"><p>Une seule application Expo fonctionne en deux modes sur deux types d’appareils : le téléphone des personnes aidantes et une tablette réservée à la personne aidée. Les deux parlent à une API Rails qui limite chaque requête à un foyer.</p></div>
+      <figure class="diagram" style="margin:0" aria-label="Schéma du système">
+      <div class="flow">
+        <h3>Un besoin, du toucher à la réponse</h3>
+        <div class="lane">
+          <div class="stage"><b>Tablette</b><small>Expo · mode personne aidée</small><ul><li>Pictogrammes et carte du corps</li><li>Jumelée avec un code de 10 minutes</li><li>Touchers mis en file hors ligne</li></ul></div><div class="link">HTTPS + jeton d’appareil</div><div class="stage hot"><b>API Rails 8</b><small>Devise JWT · Pundit · acts_as_tenant</small><ul><li>Chaque requête limitée à un foyer</li><li>Machine à états des signaux</li><li>Historique des données cliniques</li></ul></div><div class="link both">lecture / écriture</div><div class="stage"><b>PostgreSQL</b><small>Colonnes chiffrées</small><ul><li>Noms, diagnostics, allergies et médicaments chiffrés au repos</li></ul></div>
+        </div>
+      </div>
+      <div class="flow">
+        <h3>Joindre les bonnes personnes</h3>
+        <div class="lane">
+          <div class="stage hot"><b>API Rails 8</b><small>ActionCable</small><ul><li>Canal du foyer</li><li>Notifications pour les téléphones en poche</li></ul></div><div class="link">WebSocket + notifications</div><div class="stage"><b>Téléphones des aidants</b><small>Expo · mode aidant</small><ul><li>Tableau de bord avec pastilles</li><li>Prendre en charge, puis résoudre</li><li>Registres, notes et réglages selon les permissions</li></ul></div>
+        </div>
+      </div>
+      </figure>
+    </section>
+
+    <section class="cs" aria-labelledby="d-h">
+      <span class="eyebrow">04</span>
+      <h2 id="d-h">Décisions clés</h2>
+      <ol class="decisions"><li><b>Le locataire, c’est le foyer, pas l’utilisateur</b><span>Une infirmière peut travailler avec trois familles. Chaque adhésion a son propre rôle et ses permissions par module, plus des accès temporaires qui expirent, comme l’accès aux réglages pendant une heure.</span></li><li><b>La personne aidée n’a pas de compte</b><span>La tablette se connecte comme appareil jumelé, avec son propre jeton révocable. Aucun mot de passe à gérer pour elle, et une tablette perdue peut être coupée sans toucher aux autres.</span></li><li><b>Une seule machine à états pour tous les signaux</b><span>Les besoins et la douleur suivent le même cycle en attente, pris en charge et résolu : le tableau de bord, les pastilles et les notifications se comportent tous de la même façon.</span></li><li><b>La vie privée pensée pour la Loi 25</b><span>La loi québécoise a façonné le modèle de données dès le premier jour : les champs les plus sensibles sont chiffrés au repos et les changements au dossier clinique laissent une trace.</span></li><li><b>Aucun toucher perdu</b><span>La tablette garde les signaux en file quand elle est hors ligne et les envoie au retour de la connexion : une coupure Wi-Fi n’avale jamais une demande d’aide.</span></li></ol>
+    </section>
+
+    <section class="cs" aria-labelledby="s-h">
+      <span class="eyebrow">05</span>
+      <h2 id="s-h">Où en est le projet</h2>
+      <div class="status"><div><h3>Aujourd’hui</h3><p>La bêta familiale et la phase élargie au cercle de soins sont terminées : l’application sert à une vraie équipe de soins. L’intégration continue exécute les tests de l’API et de l’application mobile à chaque envoi.</p></div><div><h3>Ensuite</h3><p>La mise en marché : fiches sur l’App Store et Google Play, un parcours de consentement pour les autres familles et la reconnaissance par les programmes québécois pour les personnes handicapées.</p></div></div>
+      <div style="margin-top:22px"><div class="tags"><span>Rails 8</span><span>PostgreSQL</span><span>ActionCable</span><span>Devise + JWT</span><span>Pundit</span><span>acts_as_tenant</span><span>PaperTrail</span><span>RSpec</span><span>Expo</span><span>React Native</span><span>TypeScript</span><span>Zustand</span><span>i18n FR/EN</span></div></div>
+    </section>
+
+    <nav class="pager" aria-label="Autres études de cas">
+      <a href="/fr/work/homebase/"><span>← Précédente</span><b>Homebase</b></a>
+      <a href="/fr/work/generator-monitor/"><span>Suivante →</span><b>Suivi de génératrice de secours</b></a>
+    </nav>
+  </div>
+</main>
+
+<section class="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-h">Un projet que des gens utiliseront tous les jours?</h2>
+      <p>Je présenterai volontiers n’importe lequel de ces projets plus en détail, y compris les projets privés.</p>
+    </div>
+    <div class="actions"><a class="btn primary" href="https://github.com/tweetyboopdev2022-code">Me joindre sur GitHub ↗</a></div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span>© 2026 tweetyboopdev</span>
+    <span><a href="/wallhub/">WallHub</a> · <a href="/wallhub/privacy.html">Confidentialité</a> · <a href="/wallhub/terms.html">Conditions</a></span>
+  </div>
+</footer>
+</body>
+</html>

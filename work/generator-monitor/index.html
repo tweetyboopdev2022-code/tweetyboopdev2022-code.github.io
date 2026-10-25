@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Standby generator monitor · Case study · tweetyboopdev</title>
+<meta name="description" content="Start a standby generator from your phone, and know that it actually started.">
+<link rel="canonical" href="https://tweetyboopdev2022-code.github.io/work/generator-monitor/">
+<link rel="alternate" hreflang="en" href="https://tweetyboopdev2022-code.github.io/work/generator-monitor/">
+<link rel="alternate" hreflang="fr" href="https://tweetyboopdev2022-code.github.io/fr/work/generator-monitor/">
+<link rel="alternate" hreflang="x-default" href="https://tweetyboopdev2022-code.github.io/work/generator-monitor/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tweetyboopdev">
+<meta property="og:title" content="Standby generator monitor · Case study · tweetyboopdev">
+<meta property="og:description" content="Start a standby generator from your phone, and know that it actually started.">
+<meta property="og:url" content="https://tweetyboopdev2022-code.github.io/work/generator-monitor/">
+<meta property="og:image" content="https://tweetyboopdev2022-code.github.io/assets/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121a17">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i aria-hidden="true"></i>tweetyboopdev</a>
+    <ul>
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#cases">Case studies</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      
+      <li><a href="https://github.com/tweetyboopdev2022-code">GitHub ↗</a></li>
+      <li><a class="lang" href="/fr/work/generator-monitor/" hreflang="fr" lang="fr" aria-label="Lire en français">FR</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="cs-hero" aria-labelledby="cs-h">
+    <div class="wrap">
+      <a class="crumb" href="/#cases">← All case studies</a>
+      <div><span class="kind">Client project · mobile + IoT</span></div>
+      <h1 id="cs-h">Standby generator monitor</h1>
+      <p class="lede">Start a standby generator from your phone, and know that it actually started.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>App, backend, firmware and hardware design</dd></div>
+        <div><dt>Stack</dt><dd>Expo · React Native · Firebase · ESP32 firmware (PlatformIO)</dd></div>
+        <div><dt>Status</dt><dd>App and firmware complete, on-site install next</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="cs" aria-labelledby="p-h">
+      <span class="eyebrow">01</span>
+      <h2 id="p-h">The problem</h2>
+      <div class="prose"><p>An electrical contractor installs whole-house standby generators. The manufacturer's own Wi-Fi feature only works locally, so neither the homeowner nor the contractor can tell from away whether a unit is healthy, or start it ahead of a storm.</p><p>The contractor wanted a branded, bilingual app for their customers, a staff view of every generator they look after, and hardware their own electrician could install.</p></div>
+    </section>
+
+    <section class="cs" aria-labelledby="b-h">
+      <span class="eyebrow">02</span>
+      <h2 id="b-h">What I built</h2>
+      <div class="features"><div><b>Customer app</b><span>Live status, run hours, battery voltage and fault tiles, charts and event history, open alerts, and service requests straight to the contractor.</span></div><div><b>Staff app</b><span>Every generator grouped by owner, remote start and stop, assigning generators to customers, archiving and an audit log of who did what.</span></div><div><b>Device firmware</b><span>ESP32 firmware for a small box wired into the generator controller: a Wi-Fi setup portal, its own sign-in identity, run detection and debounced fault inputs.</span></div><div><b>Alerts and install guide</b><span>Push notifications in French and English for faults, low battery and devices that go silent, plus a parts list and step-by-step install guide for the electrician.</span></div></div>
+    </section>
+
+    <section class="cs" aria-labelledby="h-h">
+      <span class="eyebrow">03</span>
+      <h2 id="h-h">How it works</h2>
+      <div class="prose"><p>The device and the apps never talk to each other directly. Everything goes through Firestore, and its security rules decide who may write what: staff, customers, or the device's own identity.</p></div>
+      <figure class="diagram" style="margin:0" aria-label="System diagram">
+      <div class="flow">
+        <h3>Status and start / stop</h3>
+        <div class="lane">
+          <div class="stage"><b>Generator controller</b><small>Documented wiring harness</small><ul><li>2-wire run signal</li><li>Alarm, oil, temperature and frequency faults</li><li>Battery voltage</li></ul></div><div class="link both">dry contacts + optocoupler</div><div class="stage hot"><b>ESP32 device</b><small>PlatformIO · Arduino</small><ul><li>Hold-based run relay</li><li>Debounced fault inputs</li><li>Polls for commands</li></ul></div><div class="link both">REST, own identity</div><div class="stage"><b>Firestore</b><small>Security rules · 60+ tests</small><ul><li>Device state and history</li><li>Commands</li><li>Alerts and audit log</li></ul></div><div class="link both">live listeners</div><div class="stage"><b>Staff &amp; customer apps</b><small>Expo · React Native</small><ul><li>Live status</li><li>Start / stop (staff only)</li><li>History and alerts</li></ul></div>
+        </div>
+      </div>
+      <div class="flow">
+        <h3>Alerts, with no cloud functions</h3>
+        <div class="lane">
+          <div class="stage"><b>Firestore</b><small>Device state</small><ul><li>Heartbeats</li><li>Pending commands</li></ul></div><div class="link">Admin SDK</div><div class="stage hot"><b>Background sweep</b><small>Node · runs every minute</small><ul><li>Silent devices</li><li>Command timeouts</li><li>Threshold alerts, de-duplicated</li></ul></div><div class="link">push API</div><div class="stage"><b>Customer's phone</b><small>Expo push</small><ul><li>Message in the customer's language</li></ul></div>
+        </div>
+      </div>
+      </figure>
+    </section>
+
+    <section class="cs" aria-labelledby="d-h">
+      <span class="eyebrow">04</span>
+      <h2 id="d-h">Key decisions</h2>
+      <ol class="decisions"><li><b>Done means the engine is running</b><span>A command moves from pending to acknowledged to completed only after run detection confirms the change. If it never does, the sweep times it out and raises an alert instead of showing a false success.</span></li><li><b>Read the manufacturer's manual before buying parts</b><span>That turned up a documented 2-wire start/stop input and discrete fault outputs on the controller harness. The firmware was redesigned around that hold-based run signal instead of guessing at button presses.</span></li><li><b>Free tier on purpose</b><span>No Cloud Functions: a small one-shot script run every minute handles offline detection, command timeouts, threshold alerts and push. Alert IDs are deterministic, so re-running it never sends a duplicate.</span></li><li><b>A missing sensor is missing, not zero</b><span>Every reading except run state is optional. A basic install shows only what it can really measure, and other generator brands fit the same schema without code changes.</span></li><li><b>Test the rules with the queries the app really runs</b><span>A rule that passed every single-document test failed for the list query a screen used. Rule tests now cover the exact query and batch shapes the app sends.</span></li></ol>
+    </section>
+
+    <section class="cs" aria-labelledby="s-h">
+      <span class="eyebrow">05</span>
+      <h2 id="s-h">Where it stands</h2>
+      <div class="status"><div><h3>Today</h3><p>App, backend and firmware are complete, and the firmware builds against the real ESP32 toolchain. Wi-Fi setup, sign-in, run detection and the command loop can all be bench-tested before any generator is touched.</p></div><div><h3>Next</h3><p>On-site install with the contractor's electrician: confirm the fault signals' polarity on the real unit and run the full start, detect, stop, detect loop.</p></div></div>
+      <div style="margin-top:22px"><div class="tags"><span>Expo</span><span>React Native</span><span>TypeScript</span><span>Zustand</span><span>Firebase Auth</span><span>Firestore</span><span>Security rules tests</span><span>Expo push</span><span>ESP32</span><span>PlatformIO</span><span>C++</span><span>i18n FR/EN</span></div></div>
+    </section>
+
+    <nav class="pager" aria-label="More case studies">
+      <a href="/work/robins-voice/"><span>← Previous</span><b>Robin's Voice</b></a>
+      <a href="/work/fieldbook/"><span>Next →</span><b>Fieldbook</b></a>
+    </nav>
+  </div>
+</main>
+
+<section class="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-h">Have something people will use every day?</h2>
+      <p>I'm happy to walk through any of these projects, including the private ones, in more depth.</p>
+    </div>
+    <div class="actions"><a class="btn primary" href="https://github.com/tweetyboopdev2022-code">Get in touch on GitHub ↗</a></div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span>© 2026 tweetyboopdev</span>
+    <span><a href="/wallhub/">WallHub</a> · <a href="/wallhub/privacy.html">Privacy</a> · <a href="/wallhub/terms.html">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>

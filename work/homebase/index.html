@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Homebase · Case study · tweetyboopdev</title>
+<meta name="description" content="Our household's own Todoist, built test-first with a local AI model writing the screens.">
+<link rel="canonical" href="https://tweetyboopdev2022-code.github.io/work/homebase/">
+<link rel="alternate" hreflang="en" href="https://tweetyboopdev2022-code.github.io/work/homebase/">
+<link rel="alternate" hreflang="fr" href="https://tweetyboopdev2022-code.github.io/fr/work/homebase/">
+<link rel="alternate" hreflang="x-default" href="https://tweetyboopdev2022-code.github.io/work/homebase/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tweetyboopdev">
+<meta property="og:title" content="Homebase · Case study · tweetyboopdev">
+<meta property="og:description" content="Our household's own Todoist, built test-first with a local AI model writing the screens.">
+<meta property="og:url" content="https://tweetyboopdev2022-code.github.io/work/homebase/">
+<meta property="og:image" content="https://tweetyboopdev2022-code.github.io/assets/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121a17">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i aria-hidden="true"></i>tweetyboopdev</a>
+    <ul>
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#cases">Case studies</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      
+      <li><a href="https://github.com/tweetyboopdev2022-code">GitHub ↗</a></li>
+      <li><a class="lang" href="/fr/work/homebase/" hreflang="fr" lang="fr" aria-label="Lire en français">FR</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="cs-hero" aria-labelledby="cs-h">
+    <div class="wrap">
+      <a class="crumb" href="/#cases">← All case studies</a>
+      <div><span class="kind">Full-stack · self-hosted</span></div>
+      <h1 id="cs-h">Homebase</h1>
+      <p class="lede">Our household's own Todoist, built test-first with a local AI model writing the screens.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Product, architecture and an AI-assisted build pipeline</dd></div>
+        <div><dt>Stack</dt><dd>Kotlin · Ktor · PostgreSQL · React · TypeScript · Tailwind</dd></div>
+        <div><dt>Status</dt><dd>In daily use by our household</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="cs" aria-labelledby="p-h">
+      <span class="eyebrow">01</span>
+      <h2 id="p-h">The problem</h2>
+      <div class="prose"><p>Our family ran on a commercial to-do app. It couldn't feed our kitchen wall display, didn't know about meals or medications, and kept our lists on someone else's server.</p><p>I wanted one place for tasks, shopping, chores, the meal plan and medication doses, shared by the household and shown on the wall, and a way to build it quickly without giving up on quality.</p></div>
+    </section>
+
+    <section class="cs" aria-labelledby="b-h">
+      <span class="eyebrow">02</span>
+      <h2 id="b-h">What I built</h2>
+      <div class="features"><div><b>A full task manager</b><span>Lists in folders, sections, labels, saved filters, subtasks, repeats, reminders, comments, Today, Upcoming, Inbox, search and live updates.</span></div><div><b>A drop-in for Todoist</b><span>A Todoist import and a Todoist-compatible API, so our existing lists and habits moved over instead of starting from scratch.</span></div><div><b>Meals and medications</b><span>A meal library and weekly plan, freezer stock, groceries generated from the plan, and medication doses with history, refills and alerts.</span></div><div><b>On the kitchen wall</b><span>Plugins for the Home Screens wall display show tasks, meals and medication doses, through a separate wall API.</span></div></div>
+    </section>
+
+    <section class="cs" aria-labelledby="h-h">
+      <span class="eyebrow">03</span>
+      <h2 id="h-h">How it works</h2>
+      <div class="prose"><p>The app itself is a straightforward three-tier system. What is unusual is how the screens get built: each one is a small step whose test is written first, and a local AI model writes the code until that test passes.</p></div>
+      <figure class="diagram" style="margin:0" aria-label="System diagram">
+      <div class="flow">
+        <h3>The app</h3>
+        <div class="lane">
+          <div class="stage"><b>Phones &amp; laptops</b><small>React 19 · TypeScript · Tailwind</small><ul><li>Material-style shell</li><li>Live updates</li></ul></div><div class="link both">HTTPS</div><div class="stage hot"><b>Ktor API</b><small>Kotlin · Exposed</small><ul><li>Households, lists, tasks</li><li>Meals and medications</li><li>Todoist-compatible API</li></ul></div><div class="link both">SQL</div><div class="stage"><b>PostgreSQL</b><small>Docker on a home server</small><ul><li>Daily backups, kept 14 days</li></ul></div>
+        </div>
+      </div>
+      <div class="flow">
+        <h3>How each screen gets built</h3>
+        <div class="lane">
+          <div class="stage"><b>Step + test</b><small>the spec</small><ul><li>Proven against a throwaway implementation first</li></ul></div><div class="link">step.sh</div><div class="stage hot"><b>Local model</b><small>Aider + qwen3-coder</small><ul><li>Writes the screen</li><li>Cannot edit the test</li></ul></div><div class="link">runs</div><div class="stage"><b>check.sh</b><small>types + full test suite</small><ul><li>Pass or fail, nothing in between</li></ul></div><div class="link">passes</div><div class="stage"><b>Review</b><small>me</small><ul><li>Look at it, mark it done</li></ul></div>
+        </div>
+      </div>
+      </figure>
+    </section>
+
+    <section class="cs" aria-labelledby="d-h">
+      <span class="eyebrow">04</span>
+      <h2 id="d-h">Key decisions</h2>
+      <ol class="decisions"><li><b>The test is the spec</b><span>Every step ships with its test, proven against a working implementation before it is handed over. The model may never edit the test, so a passing step means the screen really does what was asked.</span></li><li><b>Mistakes become rules</b><span>Each new kind of mistake the model makes becomes one line in the conventions file, so it does not make it again.</span></li><li><b>Compatible on day one</b><span>Speaking the Todoist API meant imports, scripts and habits carried over, instead of asking the family to start from scratch.</span></li><li><b>Walls get their own keys</b><span>Each wall display authenticates with its own key against a separate wall API, not with a family member's login.</span></li><li><b>Boring to run</b><span>One Docker Compose file on a home server, a health check, and daily backups kept for two weeks, with restore steps written down.</span></li></ol>
+    </section>
+
+    <section class="cs" aria-labelledby="s-h">
+      <span class="eyebrow">05</span>
+      <h2 id="s-h">Where it stands</h2>
+      <div class="status"><div><h3>Today</h3><p>In daily use by our household on phones, laptops and the wall. The server has 66 tests across 14 files.</p></div><div><h3>Next</h3><p>More wall plugins and the remaining screens, one tested step at a time.</p></div></div>
+      <div style="margin-top:22px"><div class="tags"><span>Kotlin</span><span>Ktor 3</span><span>Exposed</span><span>PostgreSQL</span><span>React 19</span><span>TypeScript</span><span>Tailwind 4</span><span>Vite</span><span>Vitest</span><span>Docker</span><span>Aider</span><span>Local LLM</span></div></div>
+    </section>
+
+    <nav class="pager" aria-label="More case studies">
+      <a href="/work/fieldbook/"><span>← Previous</span><b>Fieldbook</b></a>
+      <a href="/work/robins-voice/"><span>Next →</span><b>Robin's Voice</b></a>
+    </nav>
+  </div>
+</main>
+
+<section class="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-h">Have something people will use every day?</h2>
+      <p>I'm happy to walk through any of these projects, including the private ones, in more depth.</p>
+    </div>
+    <div class="actions"><a class="btn primary" href="https://github.com/tweetyboopdev2022-code">Get in touch on GitHub ↗</a></div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span>© 2026 tweetyboopdev</span>
+    <span><a href="/wallhub/">WallHub</a> · <a href="/wallhub/privacy.html">Privacy</a> · <a href="/wallhub/terms.html">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>

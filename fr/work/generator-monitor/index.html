@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suivi de génératrice de secours · Étude de cas · tweetyboopdev</title>
+<meta name="description" content="Démarrer une génératrice de secours depuis son téléphone, et savoir qu’elle a vraiment démarré.">
+<link rel="canonical" href="https://tweetyboopdev2022-code.github.io/fr/work/generator-monitor/">
+<link rel="alternate" hreflang="fr" href="https://tweetyboopdev2022-code.github.io/fr/work/generator-monitor/">
+<link rel="alternate" hreflang="en" href="https://tweetyboopdev2022-code.github.io/work/generator-monitor/">
+<link rel="alternate" hreflang="x-default" href="https://tweetyboopdev2022-code.github.io/work/generator-monitor/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tweetyboopdev">
+<meta property="og:title" content="Suivi de génératrice de secours · Étude de cas · tweetyboopdev">
+<meta property="og:description" content="Démarrer une génératrice de secours depuis son téléphone, et savoir qu’elle a vraiment démarré.">
+<meta property="og:url" content="https://tweetyboopdev2022-code.github.io/fr/work/generator-monitor/">
+<meta property="og:image" content="https://tweetyboopdev2022-code.github.io/assets/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121a17">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fr/"><i aria-hidden="true"></i>tweetyboopdev</a>
+    <ul>
+      <li><a href="/fr/#work">Projets</a></li>
+      <li><a href="/fr/#cases">Études de cas</a></li>
+      <li><a href="/fr/#skills">Compétences</a></li>
+      
+      <li><a href="https://github.com/tweetyboopdev2022-code">GitHub ↗</a></li>
+      <li><a class="lang" href="/work/generator-monitor/" hreflang="en" lang="en" aria-label="Read in English">EN</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="cs-hero" aria-labelledby="cs-h">
+    <div class="wrap">
+      <a class="crumb" href="/fr/#cases">← Toutes les études de cas</a>
+      <div><span class="kind">Projet client · mobile + IdO</span></div>
+      <h1 id="cs-h">Suivi de génératrice de secours</h1>
+      <p class="lede">Démarrer une génératrice de secours depuis son téléphone, et savoir qu’elle a vraiment démarré.</p>
+      <dl class="facts">
+        <div><dt>Rôle</dt><dd>Application, backend, micrologiciel et conception matérielle</dd></div>
+        <div><dt>Technologies</dt><dd>Expo · React Native · Firebase · micrologiciel ESP32 (PlatformIO)</dd></div>
+        <div><dt>Statut</dt><dd>Application et micrologiciel terminés, installation sur place à venir</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="cs" aria-labelledby="p-h">
+      <span class="eyebrow">01</span>
+      <h2 id="p-h">Le problème</h2>
+      <div class="prose"><p>Un entrepreneur électricien installe des génératrices de secours pour maisons entières. Le Wi-Fi du fabricant ne fonctionne qu’en local : ni le propriétaire ni l’entrepreneur ne peuvent savoir à distance si l’appareil va bien, ni le démarrer avant une tempête.</p><p>L’entrepreneur voulait une application bilingue à son image pour ses clients, une vue d’ensemble de toutes les génératrices qu’il entretient, et du matériel que son propre électricien pourrait installer.</p></div>
+    </section>
+
+    <section class="cs" aria-labelledby="b-h">
+      <span class="eyebrow">02</span>
+      <h2 id="b-h">Ce que j’ai construit</h2>
+      <div class="features"><div><b>Application client</b><span>État en direct, heures de marche, tension de batterie et tuiles de défauts, graphiques et historique, alertes ouvertes, et demandes de service envoyées directement à l’entrepreneur.</span></div><div><b>Application de l’équipe</b><span>Toutes les génératrices regroupées par propriétaire, démarrage et arrêt à distance, attribution aux clients, archivage et journal d’audit de qui a fait quoi.</span></div><div><b>Micrologiciel du boîtier</b><span>Un micrologiciel ESP32 pour un petit boîtier branché sur le contrôleur : portail de configuration Wi-Fi, identité de connexion propre, détection de marche et entrées de défaut anti-rebond.</span></div><div><b>Alertes et guide d’installation</b><span>Notifications en français et en anglais pour les défauts, la batterie faible et les appareils devenus silencieux, plus une liste de pièces et un guide d’installation étape par étape pour l’électricien.</span></div></div>
+    </section>
+
+    <section class="cs" aria-labelledby="h-h">
+      <span class="eyebrow">03</span>
+      <h2 id="h-h">Comment ça fonctionne</h2>
+      <div class="prose"><p>Le boîtier et les applications ne se parlent jamais directement. Tout passe par Firestore, dont les règles de sécurité décident qui peut écrire quoi : l’équipe, les clients ou l’identité propre du boîtier.</p></div>
+      <figure class="diagram" style="margin:0" aria-label="Schéma du système">
+      <div class="flow">
+        <h3>État et démarrage / arrêt</h3>
+        <div class="lane">
+          <div class="stage"><b>Contrôleur de la génératrice</b><small>Faisceau documenté</small><ul><li>Signal de marche à 2 fils</li><li>Défauts alarme, huile, température et fréquence</li><li>Tension de batterie</li></ul></div><div class="link both">contacts secs + optocoupleur</div><div class="stage hot"><b>Boîtier ESP32</b><small>PlatformIO · Arduino</small><ul><li>Relais de marche maintenu</li><li>Entrées de défaut anti-rebond</li><li>Interroge les commandes</li></ul></div><div class="link both">REST, identité propre</div><div class="stage"><b>Firestore</b><small>Règles de sécurité · 60+ tests</small><ul><li>État et historique</li><li>Commandes</li><li>Alertes et journal d’audit</li></ul></div><div class="link both">écouteurs en direct</div><div class="stage"><b>Applications équipe et client</b><small>Expo · React Native</small><ul><li>État en direct</li><li>Démarrer / arrêter (équipe seulement)</li><li>Historique et alertes</li></ul></div>
+        </div>
+      </div>
+      <div class="flow">
+        <h3>Des alertes sans Cloud Functions</h3>
+        <div class="lane">
+          <div class="stage"><b>Firestore</b><small>État des boîtiers</small><ul><li>Signaux de vie</li><li>Commandes en attente</li></ul></div><div class="link">Admin SDK</div><div class="stage hot"><b>Balayage planifié</b><small>Node · chaque minute</small><ul><li>Boîtiers silencieux</li><li>Commandes expirées</li><li>Alertes de seuil, sans doublons</li></ul></div><div class="link">API de notifications</div><div class="stage"><b>Téléphone du client</b><small>Notifications Expo</small><ul><li>Message dans la langue du client</li></ul></div>
+        </div>
+      </div>
+      </figure>
+    </section>
+
+    <section class="cs" aria-labelledby="d-h">
+      <span class="eyebrow">04</span>
+      <h2 id="d-h">Décisions clés</h2>
+      <ol class="decisions"><li><b>Réussi veut dire que le moteur tourne</b><span>Une commande passe d’en attente à reçue puis à terminée seulement quand la détection de marche confirme le changement. Sinon, le balayage la déclare expirée et lève une alerte plutôt que d’afficher un faux succès.</span></li><li><b>Lire le manuel du fabricant avant d’acheter des pièces</b><span>On y a trouvé une entrée de démarrage / arrêt à 2 fils documentée et des sorties de défaut distinctes sur le faisceau du contrôleur. Le micrologiciel a été repensé autour de ce signal de marche maintenu plutôt que de simuler des boutons.</span></li><li><b>Le forfait gratuit, par choix</b><span>Pas de Cloud Functions : un petit script lancé chaque minute gère la détection hors ligne, l’expiration des commandes, les alertes de seuil et les notifications. Les identifiants d’alerte sont déterministes : le relancer n’envoie jamais de doublon.</span></li><li><b>Un capteur absent est absent, pas à zéro</b><span>Toutes les lectures sauf l’état de marche sont facultatives. Une installation de base n’affiche que ce qu’elle mesure vraiment, et d’autres marques de génératrices entrent dans le même schéma sans changer le code.</span></li><li><b>Tester les règles avec les vraies requêtes de l’application</b><span>Une règle qui passait tous les tests sur un seul document échouait pour la requête de liste d’un écran. Les tests couvrent maintenant exactement les requêtes et les lots que l’application envoie.</span></li></ol>
+    </section>
+
+    <section class="cs" aria-labelledby="s-h">
+      <span class="eyebrow">05</span>
+      <h2 id="s-h">Où en est le projet</h2>
+      <div class="status"><div><h3>Aujourd’hui</h3><p>L’application, le backend et le micrologiciel sont terminés, et le micrologiciel compile avec la vraie chaîne d’outils ESP32. La configuration Wi-Fi, la connexion, la détection de marche et la boucle de commandes peuvent toutes être testées sur l’établi avant de toucher à une génératrice.</p></div><div><h3>Ensuite</h3><p>L’installation sur place avec l’électricien de l’entrepreneur : confirmer la polarité des signaux de défaut sur l’appareil réel et valider le cycle complet démarrer, détecter, arrêter, détecter.</p></div></div>
+      <div style="margin-top:22px"><div class="tags"><span>Expo</span><span>React Native</span><span>TypeScript</span><span>Zustand</span><span>Firebase Auth</span><span>Firestore</span><span>Tests de règles</span><span>Notifications Expo</span><span>ESP32</span><span>PlatformIO</span><span>C++</span><span>i18n FR/EN</span></div></div>
+    </section>
+
+    <nav class="pager" aria-label="Autres études de cas">
+      <a href="/fr/work/robins-voice/"><span>← Précédente</span><b>Robin's Voice</b></a>
+      <a href="/fr/work/fieldbook/"><span>Suivante →</span><b>Fieldbook</b></a>
+    </nav>
+  </div>
+</main>
+
+<section class="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-h">Un projet que des gens utiliseront tous les jours?</h2>
+      <p>Je présenterai volontiers n’importe lequel de ces projets plus en détail, y compris les projets privés.</p>
+    </div>
+    <div class="actions"><a class="btn primary" href="https://github.com/tweetyboopdev2022-code">Me joindre sur GitHub ↗</a></div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span>© 2026 tweetyboopdev</span>
+    <span><a href="/wallhub/">WallHub</a> · <a href="/wallhub/privacy.html">Confidentialité</a> · <a href="/wallhub/terms.html">Conditions</a></span>
+  </div>
+</footer>
+</body>
+</html>

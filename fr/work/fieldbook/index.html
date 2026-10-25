@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fieldbook · Étude de cas · tweetyboopdev</title>
+<meta name="description" content="Une application de chantier qui continue de fonctionner là où il n’y a pas de réseau.">
+<link rel="canonical" href="https://tweetyboopdev2022-code.github.io/fr/work/fieldbook/">
+<link rel="alternate" hreflang="fr" href="https://tweetyboopdev2022-code.github.io/fr/work/fieldbook/">
+<link rel="alternate" hreflang="en" href="https://tweetyboopdev2022-code.github.io/work/fieldbook/">
+<link rel="alternate" hreflang="x-default" href="https://tweetyboopdev2022-code.github.io/work/fieldbook/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tweetyboopdev">
+<meta property="og:title" content="Fieldbook · Étude de cas · tweetyboopdev">
+<meta property="og:description" content="Une application de chantier qui continue de fonctionner là où il n’y a pas de réseau.">
+<meta property="og:url" content="https://tweetyboopdev2022-code.github.io/fr/work/fieldbook/">
+<meta property="og:image" content="https://tweetyboopdev2022-code.github.io/assets/og-fr.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="fr_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121a17">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/fr/"><i aria-hidden="true"></i>tweetyboopdev</a>
+    <ul>
+      <li><a href="/fr/#work">Projets</a></li>
+      <li><a href="/fr/#cases">Études de cas</a></li>
+      <li><a href="/fr/#skills">Compétences</a></li>
+      
+      <li><a href="https://github.com/tweetyboopdev2022-code">GitHub ↗</a></li>
+      <li><a class="lang" href="/work/fieldbook/" hreflang="en" lang="en" aria-label="Read in English">EN</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="cs-hero" aria-labelledby="cs-h">
+    <div class="wrap">
+      <a class="crumb" href="/fr/#cases">← Toutes les études de cas</a>
+      <div><span class="kind">Travail professionnel · mobile</span></div>
+      <h1 id="cs-h">Fieldbook</h1>
+      <p class="lede">Une application de chantier qui continue de fonctionner là où il n’y a pas de réseau.</p>
+      <dl class="facts">
+        <div><dt>Note</dt><dd>Nom et image de marque modifiés</dd></div>
+        <div><dt>Technologies</dt><dd>React Native · TypeScript · WatermelonDB · Redux Toolkit</dd></div>
+        <div><dt>Statut</dt><dd>En production sur iOS et Android</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="cs" aria-labelledby="p-h">
+      <span class="eyebrow">01</span>
+      <h2 id="p-h">Le problème</h2>
+      <div class="prose"><p>Sur un chantier, la connexion va et vient. Les équipes ont quand même besoin des derniers plans, des tâches et des formulaires, et prennent des photos et remplissent des rapports dans des sous-sols et sur des toits.</p><p>Chaque changement doit finir par arriver au bureau, dans le bon ordre, sans se perdre ni s’appliquer deux fois.</p></div>
+    </section>
+
+    <section class="cs" aria-labelledby="b-h">
+      <span class="eyebrow">02</span>
+      <h2 id="b-h">Ce que fait l’application</h2>
+      <div class="features"><div><b>Tout fonctionne hors ligne</b><span>Plans annotés, tâches, formulaires avec lecture de codes QR, rapports journaliers, feuilles de temps, bons de travail et photos, tous utilisables sans connexion.</span></div><div><b>Synchronisation par module</b><span>Chaque domaine de l’API se synchronise séparément et garde sa propre date de dernière récupération par projet, grâce à un assistant commun pour les lots, la journalisation et les permissions.</span></div><div><b>Les changements en file</b><span>Chaque écriture hors ligne est enregistrée comme un événement et envoyée dans l’ordre. Un inspecteur intégré permet aux utilisateurs et au soutien de voir, relancer ou effacer ce qui bloque.</span></div><div><b>Un code qui grandit bien</b><span>Des modules aux couches strictes, des générateurs qui créent un module, un cas d’utilisation, un composant ou un écran, et deux configurations Jest pour les tests sur appareil et sous Node.</span></div></div>
+    </section>
+
+    <section class="cs" aria-labelledby="h-h">
+      <span class="eyebrow">03</span>
+      <h2 id="h-h">Comment ça fonctionne</h2>
+      <div class="prose"><p>Chaque module sépare les règles d’affaires du stockage et des écrans. Les lectures viennent toujours de la base locale; le réseau ne sert qu’à alimenter cette base ou à vider la file des changements locaux.</p></div>
+      <figure class="diagram" style="margin:0" aria-label="Schéma du système">
+      <div class="flow">
+        <h3>Dans un module</h3>
+        <div class="lane">
+          <div class="stage"><b>Écrans et hooks</b><small>présentation</small><ul><li>Requêtes réactives avec RxJS</li><li>Résolution des dépendances</li></ul></div><div class="link">appelle</div><div class="stage hot"><b>Cas d’utilisation</b><small>domaine</small><ul><li>Règles d’affaires seulement</li><li>Aucune dépendance au framework</li></ul></div><div class="link">interface</div><div class="stage"><b>Dépôts</b><small>données · tsyringe</small><ul><li>Implémentent les interfaces du domaine</li></ul></div><div class="link both">lecture / écriture</div><div class="stage"><b>WatermelonDB</b><small>SQLite</small><ul><li>La source de vérité sur l’appareil</li></ul></div>
+        </div>
+      </div>
+      <div class="flow">
+        <h3>Synchronisation</h3>
+        <div class="lane">
+          <div class="stage"><b>File d’événements hors ligne</b><small>écritures locales</small><ul><li>Intentions ordonnées</li><li>Relance ou correction depuis l’inspecteur</li></ul></div><div class="link">envoi aux 10 s en ligne</div><div class="stage hot"><b>API</b><small>REST</small><ul><li>Applique les changements</li><li>Renvoie les identifiants actifs par module</li></ul></div><div class="link">récupération, Wi-Fi seulement si choisi</div><div class="stage"><b>Récupération par module</b><small>écriture par lots</small><ul><li>Créations et mises à jour en un lot</li><li>Supprime ce que le serveur ne liste plus</li></ul></div>
+        </div>
+      </div>
+      </figure>
+    </section>
+
+    <section class="cs" aria-labelledby="d-h">
+      <span class="eyebrow">04</span>
+      <h2 id="d-h">Décisions clés</h2>
+      <ol class="decisions"><li><b>Des couches strictes, imposées par le linter</b><span>Chaque module a ses couches domaine, données et présentation, et ESLint bloque toute importation qui contourne son point d’entrée public. La règle tient même sous la pression des échéances.</span></li><li><b>Le serveur liste ce qui existe; l’appareil supprime le reste</b><span>Chaque récupération renvoie tous les identifiants actifs, et le client retire les lignes locales absentes. Aucun journal de suppressions requis côté serveur.</span></li><li><b>Les écritures sont des événements</b><span>Les changements hors ligne sont conservés comme des intentions ordonnées, pas comme des lignes modifiées à comparer plus tard. Ils sont donc visibles, relançables et faciles à comprendre.</span></li><li><b>L’injection de dépendances pour des tests rapides</b><span>Les cas d’utilisation et les dépôts sont enregistrés avec tsyringe : les règles d’affaires s’exécutent dans de simples tests Node, sans appareil ni simulateur.</span></li><li><b>Respecter le forfait de données</b><span>Un réglage « Wi-Fi seulement » est vérifié avant toute synchronisation de module, avec la connectivité et la validité de la session.</span></li></ol>
+    </section>
+
+    <section class="cs" aria-labelledby="s-h">
+      <span class="eyebrow">05</span>
+      <h2 id="s-h">Où en est le projet</h2>
+      <div class="status"><div><h3>Aujourd’hui</h3><p>En production sur l’App Store et Google Play, publiée après revue de code, préproduction et assurance qualité sur les versions déployées.</p></div><div><h3>À propos de cette étude de cas</h3><p>Le nom du produit, l’entreprise, les identifiants et les adresses ont été changés. Un échantillon de code anonymisé est disponible sur demande.</p></div></div>
+      <div style="margin-top:22px"><div class="tags"><span>React Native</span><span>TypeScript</span><span>WatermelonDB</span><span>SQLite</span><span>Redux Toolkit</span><span>RxJS</span><span>tsyringe</span><span>Jest</span><span>Detox</span><span>Maestro</span><span>Sentry</span><span>Datadog</span><span>i18n FR/EN</span></div></div>
+    </section>
+
+    <nav class="pager" aria-label="Autres études de cas">
+      <a href="/fr/work/generator-monitor/"><span>← Précédente</span><b>Suivi de génératrice de secours</b></a>
+      <a href="/fr/work/homebase/"><span>Suivante →</span><b>Homebase</b></a>
+    </nav>
+  </div>
+</main>
+
+<section class="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-h">Un projet que des gens utiliseront tous les jours?</h2>
+      <p>Je présenterai volontiers n’importe lequel de ces projets plus en détail, y compris les projets privés.</p>
+    </div>
+    <div class="actions"><a class="btn primary" href="https://github.com/tweetyboopdev2022-code">Me joindre sur GitHub ↗</a></div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span>© 2026 tweetyboopdev</span>
+    <span><a href="/wallhub/">WallHub</a> · <a href="/wallhub/privacy.html">Confidentialité</a> · <a href="/wallhub/terms.html">Conditions</a></span>
+  </div>
+</footer>
+</body>
+</html>

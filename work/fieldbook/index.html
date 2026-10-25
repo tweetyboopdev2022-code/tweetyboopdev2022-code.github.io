@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fieldbook · Case study · tweetyboopdev</title>
+<meta name="description" content="A field app for construction crews that keeps working where there's no signal.">
+<link rel="canonical" href="https://tweetyboopdev2022-code.github.io/work/fieldbook/">
+<link rel="alternate" hreflang="en" href="https://tweetyboopdev2022-code.github.io/work/fieldbook/">
+<link rel="alternate" hreflang="fr" href="https://tweetyboopdev2022-code.github.io/fr/work/fieldbook/">
+<link rel="alternate" hreflang="x-default" href="https://tweetyboopdev2022-code.github.io/work/fieldbook/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="tweetyboopdev">
+<meta property="og:title" content="Fieldbook · Case study · tweetyboopdev">
+<meta property="og:description" content="A field app for construction crews that keeps working where there's no signal.">
+<meta property="og:url" content="https://tweetyboopdev2022-code.github.io/work/fieldbook/">
+<meta property="og:image" content="https://tweetyboopdev2022-code.github.io/assets/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_CA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#121a17">
+<link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><i aria-hidden="true"></i>tweetyboopdev</a>
+    <ul>
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#cases">Case studies</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      
+      <li><a href="https://github.com/tweetyboopdev2022-code">GitHub ↗</a></li>
+      <li><a class="lang" href="/fr/work/fieldbook/" hreflang="fr" lang="fr" aria-label="Lire en français">FR</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="cs-hero" aria-labelledby="cs-h">
+    <div class="wrap">
+      <a class="crumb" href="/#cases">← All case studies</a>
+      <div><span class="kind">Professional work · mobile</span></div>
+      <h1 id="cs-h">Fieldbook</h1>
+      <p class="lede">A field app for construction crews that keeps working where there's no signal.</p>
+      <dl class="facts">
+        <div><dt>Note</dt><dd>Name and branding changed</dd></div>
+        <div><dt>Stack</dt><dd>React Native · TypeScript · WatermelonDB · Redux Toolkit</dd></div>
+        <div><dt>Status</dt><dd>In production on iOS and Android</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <section class="cs" aria-labelledby="p-h">
+      <span class="eyebrow">01</span>
+      <h2 id="p-h">The problem</h2>
+      <div class="prose"><p>On a job site, connectivity comes and goes. Crews still need the latest plans, to-dos and forms, and still take photos and fill in reports in basements and on rooftops.</p><p>Every change they make has to reach the office eventually, in the right order, without being lost or applied twice.</p></div>
+    </section>
+
+    <section class="cs" aria-labelledby="b-h">
+      <span class="eyebrow">02</span>
+      <h2 id="b-h">What the app does</h2>
+      <div class="features"><div><b>Everything works offline</b><span>Plans with annotations, to-dos, forms with QR scanning, daily reports, timesheets, work orders and photos, all usable with no connection.</span></div><div><b>Sync per module</b><span>Each API domain pulls on its own and tracks its own last-pulled time per project, through one shared helper for batching, logging and permissions.</span></div><div><b>Changes as a queue</b><span>Every offline write is stored as an event and pushed in order. A built-in inspector lets users and support see, retry or clear anything stuck.</span></div><div><b>A codebase that scales</b><span>Feature modules with strict layers, generators that scaffold a feature, use case, component or screen, and two Jest setups for device and Node tests.</span></div></div>
+    </section>
+
+    <section class="cs" aria-labelledby="h-h">
+      <span class="eyebrow">03</span>
+      <h2 id="h-h">How it works</h2>
+      <div class="prose"><p>Each feature keeps business rules apart from storage and screens. Reads come from the local database, always; the network only ever feeds that database or drains the queue of local changes.</p></div>
+      <figure class="diagram" style="margin:0" aria-label="System diagram">
+      <div class="flow">
+        <h3>Inside a feature module</h3>
+        <div class="lane">
+          <div class="stage"><b>Screens &amp; hooks</b><small>presentation</small><ul><li>Reactive queries via RxJS</li><li>Resolve dependencies</li></ul></div><div class="link">calls</div><div class="stage hot"><b>Use cases</b><small>domain</small><ul><li>Business rules only</li><li>No framework imports</li></ul></div><div class="link">interface</div><div class="stage"><b>Repositories</b><small>data · tsyringe</small><ul><li>Implement domain interfaces</li></ul></div><div class="link both">read / write</div><div class="stage"><b>WatermelonDB</b><small>SQLite</small><ul><li>The source of truth on the device</li></ul></div>
+        </div>
+      </div>
+      <div class="flow">
+        <h3>Sync</h3>
+        <div class="lane">
+          <div class="stage"><b>Offline event queue</b><small>local writes</small><ul><li>Ordered intents</li><li>Retry or heal from the inspector</li></ul></div><div class="link">push every 10 s when online</div><div class="stage hot"><b>API</b><small>REST</small><ul><li>Applies changes</li><li>Returns active IDs per module</li></ul></div><div class="link">pull, Wi-Fi-only if set</div><div class="stage"><b>Pull per module</b><small>batch write</small><ul><li>Create and update in one batch</li><li>Delete what the server no longer lists</li></ul></div>
+        </div>
+      </div>
+      </figure>
+    </section>
+
+    <section class="cs" aria-labelledby="d-h">
+      <span class="eyebrow">04</span>
+      <h2 id="d-h">Key decisions</h2>
+      <ol class="decisions"><li><b>Strict layers, enforced by the linter</b><span>Each feature has domain, data and presentation layers, and ESLint blocks any import past its public barrel. The rule holds even under deadline pressure.</span></li><li><b>The server lists what exists; the device deletes the rest</b><span>Each pull returns every active ID, and the client removes local rows that are missing. No tombstones or deletion log needed on the server.</span></li><li><b>Writes are events</b><span>Offline changes are stored as ordered intents, not as edited rows waiting to be diffed. That makes them visible, retryable and easy to reason about.</span></li><li><b>Dependency injection for fast tests</b><span>Use cases and repositories are registered with tsyringe, so business rules run in plain Node tests without a device or simulator.</span></li><li><b>Respect the user's data plan</b><span>A Wi-Fi-only setting is checked before any module syncs, along with connectivity and session guards.</span></li></ol>
+    </section>
+
+    <section class="cs" aria-labelledby="s-h">
+      <span class="eyebrow">05</span>
+      <h2 id="s-h">Where it stands</h2>
+      <div class="status"><div><h3>Today</h3><p>In production on the App Store and Google Play, released through code review, preprod and QA on deployed builds.</p></div><div><h3>About this case study</h3><p>The product name, company, identifiers and endpoints have been changed. An anonymized code sample is available on request.</p></div></div>
+      <div style="margin-top:22px"><div class="tags"><span>React Native</span><span>TypeScript</span><span>WatermelonDB</span><span>SQLite</span><span>Redux Toolkit</span><span>RxJS</span><span>tsyringe</span><span>Jest</span><span>Detox</span><span>Maestro</span><span>Sentry</span><span>Datadog</span><span>i18n FR/EN</span></div></div>
+    </section>
+
+    <nav class="pager" aria-label="More case studies">
+      <a href="/work/generator-monitor/"><span>← Previous</span><b>Standby generator monitor</b></a>
+      <a href="/work/homebase/"><span>Next →</span><b>Homebase</b></a>
+    </nav>
+  </div>
+</main>
+
+<section class="contact" aria-labelledby="contact-h">
+  <div class="wrap">
+    <div>
+      <h2 id="contact-h">Have something people will use every day?</h2>
+      <p>I'm happy to walk through any of these projects, including the private ones, in more depth.</p>
+    </div>
+    <div class="actions"><a class="btn primary" href="https://github.com/tweetyboopdev2022-code">Get in touch on GitHub ↗</a></div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <span>© 2026 tweetyboopdev</span>
+    <span><a href="/wallhub/">WallHub</a> · <a href="/wallhub/privacy.html">Privacy</a> · <a href="/wallhub/terms.html">Terms</a></span>
+  </div>
+</footer>
+</body>
+</html>
