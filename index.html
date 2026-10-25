@@ -1,1 +1,176 @@
-<!doctype html><meta http-equiv="refresh" content="0; url=wallhub/">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>tweetyboopdev · Software for real households</title>
+<meta name="description" content="Portfolio: offline-first mobile apps, self-hosted family software, e-book tooling and smart-display plugins.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a narrow reading column; projects as a two-up grid of spec cards, case studies as long-form articles below. */
+:root {
+  --bg: #f5f6f4;
+  --surface: #ffffff;
+  --ink: #15201c;
+  --muted: #56645e;
+  --line: #d8ddd9;
+  --accent: #0f6b5c;
+  --accent-ink: #ffffff;
+  --tag: #e3eeea;
+  --display: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0f1513; --surface: #161e1b; --ink: #e6ece9; --muted: #9aaaa3; --line: #26312d; --accent: #5ed1b9; --accent-ink: #062019; --tag: #1d2c27; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--body); }
+.wrap { max-width: 1040px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+nav { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: center; justify-content: space-between; padding-block: 22px; font: 500 14px/1 var(--mono); }
+nav .links { display: flex; flex-wrap: wrap; gap: 18px; }
+nav a { color: var(--ink); text-decoration: none; }
+nav a:hover { color: var(--accent); }
+.hero { padding-block: 48px 56px; display: grid; gap: 20px; max-width: 760px; }
+.hero h1 { font: 800 clamp(36px, 6.4vw, 64px)/1.02 var(--display); letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+.hero p { margin: 0; font-size: 19px; color: var(--muted); max-width: 62ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px; }
+.facts span { font: 500 13px/1 var(--mono); padding: 8px 11px; border: 1px solid var(--line); border-radius: 999px; }
+section { padding-block: 40px; border-top: 1px solid var(--line); }
+h2 { font: 700 13px/1 var(--mono); text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin: 0 0 24px; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+@media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card h3 { font: 700 24px/1.15 var(--display); margin: 0; letter-spacing: -.01em; }
+.card p { margin: 0; }
+.spec { font: 500 14px/1.45 var(--mono); color: var(--accent); }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+.tags span { font: 500 12px/1 var(--mono); background: var(--tag); padding: 6px 8px; border-radius: 6px; }
+.card .links { display: flex; flex-wrap: wrap; gap: 14px; font-weight: 600; font-size: 15px; }
+.muted { color: var(--muted); }
+article { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 32px; padding-block: 32px; border-top: 1px dashed var(--line); }
+article:first-of-type { border-top: 0; padding-top: 0; }
+@media (max-width: 760px) { article { grid-template-columns: minmax(0, 1fr); gap: 12px; } }
+article h3 { font: 700 26px/1.1 var(--display); margin: 0 0 8px; }
+article .meta { font: 500 13px/1.6 var(--mono); color: var(--muted); }
+article .body { display: grid; gap: 14px; max-width: 66ch; }
+article .body p { margin: 0; }
+article ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.note { font-size: 14px; color: var(--muted); }
+footer { padding-block: 40px 56px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; font-size: 14px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav aria-label="Main">
+    <a href="#top">tweetyboopdev</a>
+    <div class="links"><a href="#projects">Projects</a><a href="#case-studies">Case studies</a><a href="https://github.com/tweetyboopdev2022-code">GitHub</a></div>
+  </nav>
+
+  <header class="hero" id="top">
+    <h1>I build software that real households use every day.</h1>
+    <p>Mobile and full-stack developer. Offline-first React Native apps, self-hosted services for my own family, e-book tooling for Kobo readers, and a touchscreen wall display that runs the house. Everything here is in daily use by actual people, not a demo.</p>
+    <div class="facts"><span>React Native · Expo</span><span>TypeScript · React</span><span>Kotlin · Ktor</span><span>Rails 8</span><span>Python</span><span>C++ · Qt</span><span>Firebase · PostgreSQL</span><span>English · French</span></div>
+  </header>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <h2 id="projects-h">Open-source projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>epubkit</h3>
+        <p>Point it at a folder of downloaded books and get back a library a Kobo opens without complaint: converted, metadata filled in, structurally repaired, validated, and optionally with spoiler-free recaps bound into each book.</p>
+        <p class="spec">373-book library · 123,287 → 1,342 EPUBCheck errors · 344 books fully clean · zero lost pages</p>
+        <div class="links"><a href="https://github.com/tweetyboopdev2022-code/epubkit">Code</a></div>
+        <div class="tags"><span>Python</span><span>lxml</span><span>EPUBCheck</span><span>PyMuPDF</span><span>CLI</span></div>
+      </div>
+      <div class="card">
+        <h3>RecapMod</h3>
+        <p>A Kobo e-reader mod that adds a Recap button: how long since you last read, a summary of the chapters you finished, and the characters you have met so far. Nothing past your current position, and it works fully offline.</p>
+        <p class="spec">Runs inside Kobo's own reader (Nickel) · reads books synced from a server or sideloaded</p>
+        <div class="links"><a href="https://github.com/tweetyboopdev2022-code/RecapMod">Code</a></div>
+        <div class="tags"><span>C++</span><span>Qt</span><span>NickelHook</span><span>Embedded Linux</span></div>
+      </div>
+      <div class="card">
+        <h3>Home Screens plugins</h3>
+        <p>Twenty-five plugins for an open-source smart display: family calendar, school cycle days, chores with stars, dinner plan, grocery list, Hydro-Québec peak alerts, NHL scores, SmartThings and Home Assistant. A setup wizard fills in your own family in one pass.</p>
+        <p class="spec">25 plugins · one config for all of them · releases built by CI</p>
+        <div class="links"><a href="https://github.com/tweetyboopdev2022-code/home-screens-plugins">Code</a><a href="https://tweetyboopdev2022-code.github.io/home-screens-plugins/">Setup wizard</a></div>
+        <div class="tags"><span>React</span><span>TypeScript</span><span>Vite</span><span>Vitest</span><span>GitHub Actions</span></div>
+      </div>
+      <div class="card">
+        <h3>Grimmory add-ons</h3>
+        <p>Two add-ons for the Grimmory self-hosted library: a shared Wishlist where anyone can ask for a book or series, and a "Set up my Kobo" button that connects a plugged-in Kobo to the user's account. Both extend the app without touching its code or database.</p>
+        <p class="spec">Sidecar container + nginx injection · Hardcover, Google Books and Open Library search</p>
+        <div class="links"><a href="https://github.com/tweetyboopdev2022-code/grimmory-addons">Code</a></div>
+        <div class="tags"><span>Python</span><span>SQLite</span><span>Web Push</span><span>nginx</span><span>Docker</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="case-studies" aria-labelledby="cases-h">
+    <h2 id="cases-h">Case studies</h2>
+    <p class="note">These projects are private, for a client, an employer or my own household. Code walkthroughs are available on request.</p>
+
+    <article id="homebase">
+      <div><h3>Homebase</h3><p class="meta">Full-stack · self-hosted<br>Kotlin, Ktor, PostgreSQL<br>React, TypeScript, Tailwind</p></div>
+      <div class="body">
+        <p>Our household's own Todoist-style task app: lists of every kind, shared between family members, on phones, laptops and the kitchen wall display. It runs on a home server.</p>
+        <ul>
+          <li>Kotlin and Ktor API over PostgreSQL, with a React and TypeScript web app.</li>
+          <li>Feeds the wall display through its own plugins for tasks, the meal plan and medication doses, authenticated with per-device wall keys.</li>
+          <li>Built test-first in small steps: each step ships with its test as the spec, and a local AI model implements the screen against it. About 100 test files keep that loop honest.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article id="robins-voice">
+      <div><h3>Robin's Voice</h3><p class="meta">Mobile + API · in development<br>Expo, React Native<br>Rails 8, PostgreSQL, ActionCable</p></div>
+      <div class="body">
+        <p>A communication and care-coordination app for adults with severe non-verbal autism and the many caregivers around them. The person being cared for uses a tablet with picture buttons and a body map to say what they need or where it hurts; parents, nurses and educators get it in real time on their phones.</p>
+        <ul>
+          <li>Multi-tenant by household, so one caregiver can belong to several care teams with different roles and permissions.</li>
+          <li>Real-time signals over WebSockets with a pending, acknowledged, resolved flow, plus medication schedules, intake limits, vitals and equipment logs.</li>
+          <li>Bilingual French and English, built for Quebec's privacy law (Loi 25), with sensitive fields encrypted at rest. CI runs on both the API and the app.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article id="generator-monitor">
+      <div><h3>Standby generator monitor</h3><p class="meta">Client project · mobile + IoT<br>Expo, React Native, Firebase<br>ESP32 firmware (PlatformIO)</p></div>
+      <div class="body">
+        <p>A mobile app for an electrical contractor's customers to watch their whole-house standby generator and start or stop it remotely, plus the firmware for the small device that connects to the generator.</p>
+        <ul>
+          <li>ESP32 firmware talks to Firestore over plain REST, reads run state and fault signals from the generator controller's wiring harness, and drives a hold-based start signal.</li>
+          <li>Commands are confirmed by sensors, not by the relay firing: pending, acknowledged, then completed only when the engine is actually running.</li>
+          <li>Kept on Firebase's free tier by replacing cloud functions with a scheduled sweep script for alerts, offline detection and push notifications. Security rules are covered by 60+ tests.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article id="fieldbook">
+      <div><h3>Fieldbook</h3><p class="meta">Professional work · mobile<br>React Native, TypeScript<br>WatermelonDB, Redux Toolkit</p></div>
+      <div class="body">
+        <p>A production offline-first field app built at work, shown here with its name and branding changed. Crews fill in forms and records with no signal, and everything syncs when they're back online.</p>
+        <ul>
+          <li>Clean Architecture per feature module (domain, data, presentation) with dependency injection and branded ID types.</li>
+          <li>Local-first data in WatermelonDB on SQLite, with a sync service that catches up when the device is back online.</li>
+          <li>Detox end-to-end tests, Sentry and Datadog monitoring, bilingual French and English.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <footer>
+    <span>Find me on <a href="https://github.com/tweetyboopdev2022-code">GitHub</a>.</span>
+    <span><a href="wallhub/">WallHub</a> · <a href="wallhub/privacy.html">Privacy</a> · <a href="wallhub/terms.html">Terms</a></span>
+  </footer>
+</div>
+</body>
+</html>
