@@ -215,6 +215,16 @@ function home(lang) {
     </div>
   </section>
 
+  <section class="block wrap" id="wall" aria-labelledby="wall-h">
+    <div class="head">
+      <div><span class="eyebrow">${h.wall.eyebrow}</span><h2 id="wall-h">${h.wall.title}</h2></div>
+      <p>${h.wall.intro}</p>
+    </div>
+    <div class="shots">
+      ${h.wall.shots.map(([f, alt, cap]) => html`<figure><img src="/assets/shots/wall-${f}.webp" width="1080" height="1920" loading="lazy" decoding="async" alt="${esc(alt)}"><figcaption>${cap}</figcaption></figure>`)}
+    </div>
+  </section>
+
   <section class="block wrap" id="cases" aria-labelledby="cases-h">
     <div class="head">
       <div><span class="eyebrow">${h.casesEyebrow}</span><h2 id="cases-h">${h.casesTitle}</h2></div>

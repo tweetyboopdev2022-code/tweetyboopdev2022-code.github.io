@@ -67,6 +67,15 @@ export default {
         body: 'Une liste de souhaits partagée et un bouton « Configurer ma Kobo » pour une bibliothèque auto-hébergée, ajoutés sans toucher au code ni à la base de données de l’application.',
       },
     },
+    wall: {
+      eyebrow: 'Utilisé tous les jours', title: 'Le mur de la cuisine',
+      intro: 'De vrais écrans de notre affichage mural, avec les modules Home Screens. Les noms ont été remplacés.',
+      shots: [
+        ['home', 'Écran d’accueil de l’affichage mural avec l’heure, la météo, les collectes, les soupers, la semaine de la famille et un score de hockey', 'Accueil\u00a0: la journée d’un coup d’œil, des collectes aux soupers jusqu’à la semaine.'],
+        ['planning', 'Écran de planification avec un calendrier mensuel des jours d’école, des minuteries, les repas congelés et le menu de la semaine', 'Planification\u00a0: jours du cycle scolaire, minuteries, congélateur et repas de la semaine.'],
+        ['shopping', 'Écran d’épicerie avec les listes par magasin et des boutons d’ajout rapide', 'Épicerie\u00a0: des listes par magasin, alimentées du téléphone ou du mur.'],
+      ],
+    },
     casesEyebrow: 'Travail privé', casesTitle: 'Études de cas', casesIntro: 'Réalisés pour un client, un employeur ou ma propre famille. Présentation du code sur demande.',
     skillsEyebrow: 'Ce que j’apporte', skillsTitle: 'Compétences',
     skills: [

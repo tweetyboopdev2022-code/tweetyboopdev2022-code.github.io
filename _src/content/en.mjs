@@ -66,6 +66,15 @@ export default {
         body: 'A shared Wishlist and a one-click "Set up my Kobo" for a self-hosted library, added without touching the app\'s code or database.',
       },
     },
+    wall: {
+      eyebrow: 'In daily use', title: 'The kitchen wall',
+      intro: 'Real screens from our wall display, running the Home Screens plugins. Names are swapped for placeholders.',
+      shots: [
+        ['home', 'Wall display home screen with the time, weather, bin schedule, dinners, a week of family events and a hockey score', 'Home: the day at a glance, from bins and dinners to the week ahead.'],
+        ['planning', 'Wall display planning screen with a month calendar showing school cycle days, kitchen timers, freezer meals and the weekly menu', 'Planning: school cycle days, timers, freezer stock and the week\'s meals.'],
+        ['shopping', 'Wall display shopping screen with grocery and warehouse store lists and quick-add buttons', 'Shopping: lists by store, added to from a phone or the wall.'],
+      ],
+    },
     casesEyebrow: 'Private work', casesTitle: 'Case studies', casesIntro: 'Built for a client, an employer or my own household. Code walkthroughs on request.',
     skillsEyebrow: 'What I bring', skillsTitle: 'Skills',
     skills: [
