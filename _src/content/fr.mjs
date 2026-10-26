@@ -73,7 +73,7 @@ export default {
       shots: [
         ['home', 'Écran d’accueil de l’affichage mural avec l’heure, la météo, les collectes, les soupers, la semaine de la famille et un score de hockey', 'Accueil\u00a0: la journée d’un coup d’œil, des collectes aux soupers jusqu’à la semaine.'],
         ['planning', 'Écran de planification avec un calendrier mensuel des jours d’école, des minuteries, les repas congelés et le menu de la semaine', 'Planification\u00a0: jours du cycle scolaire, minuteries, congélateur et repas de la semaine.'],
-        ['shopping', 'Écran d’épicerie avec les listes par magasin et des boutons d’ajout rapide', 'Épicerie\u00a0: des listes par magasin, alimentées du téléphone ou du mur.'],
+        ['sam', 'Écran d’un enfant\u00a0: qui s’occupe du coucher, la journée d’école, la routine du matin avec des étoiles à gagner et des comptes à rebours', 'Écran d’enfant\u00a0: le coucher, la journée d’école et des tâches qui rapportent des étoiles.'],
       ],
     },
     casesEyebrow: 'Travail privé', casesTitle: 'Études de cas', casesIntro: 'Réalisés pour un client, un employeur ou ma propre famille. Présentation du code sur demande.',
