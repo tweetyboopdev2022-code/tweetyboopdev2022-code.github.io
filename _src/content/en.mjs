@@ -28,7 +28,7 @@ export default {
     ctaWork: 'See the work',
     ctaCases: 'Read the case studies',
     devices: {
-      label: 'Our real kitchen wall display, next to illustrations of a Kobo e-reader showing a recap and a phone receiving a care alert',
+      label: 'Real screens: our kitchen wall display, the Homebase task app on a laptop, and a care alert in Robin\'s Voice on a phone',
       date: 'TUESDAY · SCHOOL DAY 3 · −4°C',
       homeTab: 'Home', planTab: 'Planning',
       tiles: [['Leave for bus', 'in 23 min'], ['Bedtime', 'Alex tonight'], ['Today', 'Gym · Library books due · Pizza lunch', true], ['Chores', '<span class="stars">★★★★☆</span>'], ['Dinner', 'Chili'], ['Hydro peak', '6–10 am: run the dishwasher later', true]],

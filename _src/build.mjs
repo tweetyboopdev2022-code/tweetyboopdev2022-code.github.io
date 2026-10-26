@@ -126,19 +126,8 @@ function home(lang) {
 
       <div class="devices" aria-label="${esc(h.devices.label)}" role="img">
         <div class="dev wall"><img src="/assets/shots/wall-home.webp" width="1080" height="1920" alt="" fetchpriority="high" decoding="async"></div>
-        <div class="dev kobo">
-          <div class="screen">
-            ${h.devices.book.map((p) => html`<p>${p}</p>`)}
-            <div class="recap"><h4>${h.devices.recapTitle}</h4><span>${h.devices.recap}</span></div>
-          </div>
-        </div>
-        <div class="dev phone">
-          <div class="screen">
-            <div class="ping"><b>${h.devices.pingTitle}</b>${h.devices.ping}</div>
-            <span class="ack">${h.devices.ack}</span>
-            <div class="row"></div><div class="row s"></div><div class="row"></div><div class="row s"></div>
-          </div>
-        </div>
+        <div class="dev desk"><img src="/assets/shots/cases/homebase/today.webp" width="1440" height="900" alt="" decoding="async"></div>
+        <div class="dev phone"><img src="/assets/shots/cases/robins-voice/notifications.webp" width="645" height="1403" alt="" decoding="async"></div>
       </div>
     </div>
   </section>
