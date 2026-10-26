@@ -271,3 +271,14 @@ footer a { color: var(--night-muted); }
 /* hero wall: the real wall display screenshot (portrait), replacing the drawn mockup */
 .wall { left: 0; top: 0; height: 100%; width: auto; aspect-ratio: 9 / 16; padding: 8px; border-radius: 18px; }
 .wall img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 11px; }
+
+/* case study screenshots: each row keeps equal image heights by giving every figure its own aspect ratio as flex-grow */
+.cs-note { color: var(--muted); margin: 8px 0 22px; font-size: 17px; }
+.cs-shots { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 26px; }
+.cs-shots figure { flex: var(--r) 1 0; min-width: 0; margin: 0; display: grid; gap: 10px; }
+.cs-shots img { width: 100%; height: auto; display: block; border-radius: 14px; box-shadow: 0 20px 44px -22px rgba(0,0,0,.4), 0 0 0 1px var(--line); }
+.cs-shots figcaption { font-size: 15px; color: var(--muted); }
+@media (max-width: 760px) {
+  .cs-shots { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; }
+  .cs-shots figure { flex: none; width: min(calc(var(--r) * 440px), 86%); scroll-snap-align: start; }
+}

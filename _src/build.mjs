@@ -289,7 +289,12 @@ function casePage(lang, k, i) {
     </div>
   </section>
 
-  <div class="wrap">
+  <div class="wrap">${k.shots ? html`
+    <section class="cs" aria-labelledby="sc-h">
+      <span class="eyebrow" id="sc-h">${c.labels.screens}</span>
+      <p class="cs-note">${c.labels.screensNote}</p>
+      ${k.shots.map((row) => html`<div class="cs-shots">${row.map(([f, w, h, alt, cap]) => html`<figure style="--r:${(w / h).toFixed(4)}"><img src="/assets/shots/cases/${k.slug}/${f}.webp" width="${w}" height="${h}" loading="lazy" decoding="async" alt="${esc(alt)}"><figcaption>${cap}</figcaption></figure>`)}</div>`)}
+    </section>` : ''}
     <section class="cs" aria-labelledby="p-h">
       <span class="eyebrow">01</span>
       <h2 id="p-h">${c.labels.problem}</h2>

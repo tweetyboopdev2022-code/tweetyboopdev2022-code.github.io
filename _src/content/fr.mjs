@@ -17,6 +17,7 @@ export default {
     allCases: 'Toutes les études de cas', problem: 'Le problème', built: 'Ce que j’ai construit', how: 'Comment ça fonctionne',
     decisions: 'Décisions clés', where: 'Où en est le projet', diagram: 'Schéma du système', more: 'Autres études de cas',
     prev: 'Précédente', next: 'Suivante',
+    screens: 'Écrans', screensNote: 'La vraie application, avec des données fictives et des noms remplacés.',
   },
 
   home: {
@@ -94,6 +95,12 @@ export default {
       stackShort: 'Expo · React Native · Rails 8 · PostgreSQL · ActionCable',
       role: 'Produit, architecture, API et application',
       statusShort: 'En bêta avec une équipe de soins familiale',
+      shots: [
+        [['today', 645, 1403, 'Écran Aujourd’hui de l’aidant avec la semaine, qui est de garde, la prochaine dose et le suivi de l’eau, de la nourriture et des médicaments', 'Aujourd’hui\u00a0: qui est de garde, la prochaine dose, les apports.'],
+         ['notifications', 645, 1403, 'Fil de notifications avec des signaux de la tablette, un rappel de médicament, l’eau bue et une note vocale', 'Les signaux de la tablette arrivent en temps réel.'],
+         ['care', 645, 1403, 'Centre de soins avec les médicaments, l’alimentation, l’équipement, les mesures, les boutons de communication, les photos et un rapport pour le médecin', 'Le centre de soins, jusqu’au rapport pour le médecin.'],
+         ['tablet', 1024, 1366, 'Tablette de communication avec de grands boutons illustrés et Oui, Non et Arrête', 'La tablette\u00a0: de gros boutons, oui, non et arrête.']],
+      ],
       summary: 'Une application de communication et de coordination des soins pour les adultes autistes non verbaux et les nombreuses personnes qui les accompagnent. La personne aidée touche des pictogrammes ou une carte du corps sur une tablette; parents, infirmières et éducateurs reçoivent l’information en temps réel sur leur téléphone.',
       highlights: [
         'Multilocataire par foyer : une même personne aidante peut faire partie de plusieurs équipes de soins, avec un rôle et des permissions propres à chacune.',
@@ -271,6 +278,12 @@ export default {
       stackShort: 'Kotlin · Ktor · PostgreSQL · React · TypeScript · Tailwind',
       role: 'Produit, architecture et chaîne de développement assistée par IA',
       statusShort: 'Utilisé tous les jours à la maison',
+      shots: [
+        [['today', 1440, 900, 'Vue Aujourd’hui de Homebase sur ordinateur avec les tâches en retard, du jour et faites, des filtres par personne, le souper et les tâches par liste', 'Aujourd’hui sur ordinateur\u00a0: compteurs, filtres, souper.'],
+         ['today-phone', 645, 1396, 'Vue Aujourd’hui de Homebase sur téléphone avec une barre d’onglets et un bouton de nouvelle tâche', 'La même vue sur téléphone.']],
+        [['list', 1440, 900, 'Un projet de rénovation de cuisine avec des sections Planifier, Acheter et Faire, des sous-tâches, des étiquettes et des responsables', 'Un projet avec sections et sous-tâches.'],
+         ['meds', 1440, 900, 'Écran des médicaments avec une alerte de stock bas et les doses du matin, du coucher et au besoin', 'Médicaments\u00a0: doses selon le moment, alerte de stock.']],
+      ],
       summary: 'Notre propre application de tâches à la Todoist : des listes partagées sur les téléphones, les portables et l’écran mural de la cuisine, hébergées sur un serveur à la maison.',
       highlights: [
         'API Kotlin et Ktor sur PostgreSQL, avec une application Web React et TypeScript.',

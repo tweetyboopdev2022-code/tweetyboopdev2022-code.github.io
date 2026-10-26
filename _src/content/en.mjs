@@ -16,6 +16,7 @@ export default {
     allCases: 'All case studies', problem: 'The problem', built: 'What I built', how: 'How it works',
     decisions: 'Key decisions', where: 'Where it stands', diagram: 'System diagram', more: 'More case studies',
     prev: 'Previous', next: 'Next',
+    screens: 'Screens', screensNote: 'The real app, with made-up data and placeholder names.',
   },
 
   home: {
@@ -93,6 +94,12 @@ export default {
       stackShort: 'Expo · React Native · Rails 8 · PostgreSQL · ActionCable',
       role: 'Product, architecture, API and app',
       statusShort: 'In beta with a family care team',
+      shots: [
+        [['today', 645, 1403, 'Caregiver Today screen with a week strip, who is on duty, the next medication dose, and water, food and medication progress', 'Today: who\'s on duty, the next dose, intake so far.'],
+         ['notifications', 645, 1403, 'Notifications feed with tablet signals, a medication reminder, water intake and a voice note', 'Signals from the tablet arrive in real time.'],
+         ['care', 645, 1403, 'Care hub listing medications, food and water, equipment, body measurements, communication buttons, photos and a doctor report', 'Care hub, down to a doctor report.'],
+         ['tablet', 1024, 1366, 'Communication tablet with large picture buttons for Lunch, I want, I feel, It hurts and Let\'s go, plus Yes, No and Stop', 'The tablet: big buttons, yes, no and stop.']],
+      ],
       summary: 'A communication and care-coordination app for adults with severe non-verbal autism and the many caregivers around them. The person being cared for taps picture buttons or a body map on a tablet; parents, nurses and educators get it in real time on their phones.',
       highlights: [
         'Multi-tenant by household: one caregiver can belong to several care teams, each with its own role and permissions.',
@@ -270,6 +277,12 @@ export default {
       stackShort: 'Kotlin · Ktor · PostgreSQL · React · TypeScript · Tailwind',
       role: 'Product, architecture and an AI-assisted build pipeline',
       statusShort: 'In daily use by our household',
+      shots: [
+        [['today', 1440, 900, 'Homebase Today view on desktop with overdue, today and done counts, family filters, tonight\'s meal and tasks grouped by list', 'Today on desktop: counts, filters, tonight\'s meal.'],
+         ['today-phone', 645, 1396, 'Homebase Today view on a phone with a bottom tab bar and a new task button', 'The same view on a phone.']],
+        [['list', 1440, 900, 'A Kitchen refresh project with Plan, Buy and Do sections, sub-tasks, labels and assignees', 'A project with sections and sub-tasks.'],
+         ['meds', 1440, 900, 'Medications screen with a running-low banner and morning, bedtime and as-needed doses', 'Medications: doses by time of day, refill warning.']],
+      ],
       summary: "Our household's own Todoist-style task app: shared lists on phones, laptops and the kitchen wall display, running on a home server.",
       highlights: [
         'Kotlin and Ktor API over PostgreSQL, with a React and TypeScript web app.',
