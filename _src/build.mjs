@@ -125,15 +125,7 @@ function home(lang) {
       </div>
 
       <div class="devices" aria-label="${esc(h.devices.label)}" role="img">
-        <div class="dev wall">
-          <div class="screen">
-            <div class="time">7:42<small>${h.devices.date}</small></div>
-            <div class="tabs"><b style="background:#f5c37e">${h.devices.homeTab}</b><b style="background:#fbbf24">Jordan</b><b style="background:#34d399">Alex</b><b style="background:#f472b6">Sam</b><b style="background:#60a5fa">${h.devices.planTab}</b></div>
-            <div class="tiles">
-              ${h.devices.tiles.map(([k, v, wide]) => html`<div class="tile${wide ? ' wide' : ''}"><b>${k}</b>${v}</div>`)}
-            </div>
-          </div>
-        </div>
+        <div class="dev wall"><img src="/assets/shots/wall-home.webp" width="1080" height="1920" alt="" fetchpriority="high" decoding="async"></div>
         <div class="dev kobo">
           <div class="screen">
             ${h.devices.book.map((p) => html`<p>${p}</p>`)}

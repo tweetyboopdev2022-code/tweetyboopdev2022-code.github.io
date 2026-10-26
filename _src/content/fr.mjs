@@ -28,7 +28,7 @@ export default {
     ctaWork: 'Voir les projets',
     ctaCases: 'Lire les études de cas',
     devices: {
-      label: 'Illustrations de trois projets : un écran mural familial, une liseuse Kobo affichant un résumé, et un téléphone recevant une alerte de soins',
+      label: 'Notre vrai écran mural de cuisine, à côté d’illustrations d’une liseuse Kobo affichant un résumé et d’un téléphone recevant une alerte de soins',
       date: 'MARDI · JOUR 3 · −4 °C',
       homeTab: 'Accueil', planTab: 'Planif',
       tiles: [['Autobus', 'dans 23 min'], ['Coucher', 'Alex ce soir'], ['Aujourd’hui', 'Gym · Livres à rendre · Midi pizza', true], ['Tâches', '<span class="stars">★★★★☆</span>'], ['Souper', 'Chili'], ['Pointe Hydro', '6 h – 10 h : lave-vaisselle plus tard', true]],
