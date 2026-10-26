@@ -157,6 +157,12 @@ export default {
       stackShort: 'Expo · React Native · Firebase · ESP32 firmware (PlatformIO)',
       role: 'App, backend, firmware and hardware design',
       statusShort: 'App and firmware complete, on-site install next',
+      shots: [
+        [['running', 645, 1403, 'Generator detail for a running unit with start and stop buttons, an output voltage gauge, current and load', 'Live status, with start and stop for staff.'],
+         ['start-confirm', 645, 1403, 'A confirmation dialog asking to start the generator remotely', 'Remote start always asks first.'],
+         ['history', 645, 1403, 'Seven-day charts for load and battery voltage, with event filters for starts, stops, faults and commands', 'A week of history and the event log.'],
+         ['dark', 645, 1403, 'The generator detail screen in dark mode', 'Dark mode.']],
+      ],
       summary: "An app for an electrical contractor's customers to watch their whole-house standby generator and start or stop it from anywhere, plus the firmware for the small device wired into the generator.",
       highlights: [
         "ESP32 firmware reads run state and fault signals from the generator controller's harness and talks to Firestore over plain REST.",

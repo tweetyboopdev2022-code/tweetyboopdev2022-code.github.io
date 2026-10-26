@@ -158,6 +158,12 @@ export default {
       stackShort: 'Expo · React Native · Firebase · micrologiciel ESP32 (PlatformIO)',
       role: 'Application, backend, micrologiciel et conception matérielle',
       statusShort: 'Application et micrologiciel terminés, installation sur place à venir',
+      shots: [
+        [['running', 645, 1403, 'Fiche d’une génératrice en marche avec les boutons démarrer et arrêter, une jauge de tension, le courant et la charge', 'L’état en direct, avec démarrage et arrêt pour le personnel.'],
+         ['start-confirm', 645, 1403, 'Une boîte de confirmation avant de démarrer la génératrice à distance', 'Le démarrage à distance demande toujours une confirmation.'],
+         ['history', 645, 1403, 'Graphiques sur sept jours de la charge et de la tension de batterie, avec des filtres d’événements', 'Une semaine d’historique et le journal des événements.'],
+         ['dark', 645, 1403, 'La fiche de la génératrice en mode sombre', 'Le mode sombre.']],
+      ],
       summary: 'Une application pour les clients d’un entrepreneur électricien, qui leur permet de surveiller leur génératrice résidentielle et de la démarrer ou l’arrêter de n’importe où, avec le micrologiciel du petit boîtier branché sur la génératrice.',
       highlights: [
         'Le micrologiciel ESP32 lit l’état de marche et les défauts sur le faisceau du contrôleur de la génératrice, et parle à Firestore en simple REST.',
